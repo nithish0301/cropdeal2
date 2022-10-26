@@ -1,43 +1,48 @@
 server:
   port: 8002
-  
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 spring:
   application:
     name: API-gateway
-    
-    
+
   cloud:
     gateway:
       routes:
-      - id: AdminMicroservice
-        uri: http://AdminMicroservice/
-        predicates:
-        - Path=/api/**
-        
-        
-      - id: CartMicroservice
-        uri: http://CartMicroservice/
-        predicates:
-        - Path=/apicart/**
-        
-      - id: CropMicroservice
-        uri: http://CropMicroservice/
-        predicates:
-        - Path=/api/**
-       
-      - id: FarmerMicroservice
-        uri: http://FarmerMicroservice/
-        predicates:
-        - Path=/api/**
-        
-        
-        
-      - id: ManagementMicroservice
-        uri: http://ManagementMicroservice/
-        predicates:
-        - Path=/api/auth/** 
-        
-      - id: PaymentMicroservice
-        uri: http://PaymentMicroservice/
-        predicates:
-        - Path=/payment/**
+        - id: AdminMicroservice
+          uri: http://localhost:8094/
+          predicates:
+            - Path=/api/**
+
+
+        - id: CartMicroservice
+          uri: http://CartMicroservice
+          predicates:
+            - Path=/apicart/**
+
+        - id: CropMicroservice
+          uri: http://CropMicroservice
+          predicates:
+            - Path=/api/**
+
+        - id: FarmerMicroservice
+          uri: http://FarmerMicroservice
+          predicates:
+            - Path=/api/**
+
+
+
+        - id: ManagementMicroservice
+          uri: http://ManagementMicroservice
+          predicates:
+            - Path=/api/auth/**
+
+        - id: PaymentMicroservice
+          uri: http://PaymentMicroservice
+          predicates:
+            - Path=/payment/**
+
+

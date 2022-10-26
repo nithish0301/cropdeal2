@@ -3,7 +3,7 @@ package com.systemorders.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection="CartList")
 public class Cart {
 	@Id
 	private String id;

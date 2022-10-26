@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+
 
 import com.systemadmin.model.FarmerDetails;
 import com.systemadmin.repo.AdminRepository;
 import com.systemadmin.model.CropDetails;
 import com.systemadmin.model.DealersDetails;
 
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class AdminController {
@@ -43,10 +43,7 @@ public class AdminController {
 	        }
 	  }
 	
-	 //@RequestMapping(value="/putfarmer",method=RequestMethod.PUT)
-	 // public void addAdminDetails(@RequestBody FarmerDetails farmers) {
-	//	  repo.insert(farmers);
-	 // }
+
 
 	 @RequestMapping(value="/farmer",method=RequestMethod.DELETE)
 	  public void deleteCropDetails(@PathVariable String userName) {

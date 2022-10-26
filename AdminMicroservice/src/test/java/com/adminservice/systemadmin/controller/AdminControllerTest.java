@@ -26,12 +26,12 @@ public class AdminControllerTest {
     @Mock
     public AdminRepository AdminRepository;
     
-    FarmerDetails F =new FarmerDetails(1,11,"sree","sai@mail.com", "jfjs");
+    FarmerDetails F =new FarmerDetails(1,11,"kamal","sai@mail.com", "jfjs");
     
     public ResponseEntity<List<FarmerDetails>> getlist(){
         List<FarmerDetails> testFarmer = new ArrayList<FarmerDetails>();
         testFarmer.add(F);      
-        FarmerDetails s = new FarmerDetails(2,22,"sree","sai@mail.com","skmaks");
+        FarmerDetails s = new FarmerDetails(2,22,"kamal","sai@mail.com","skmaks");
         testFarmer.add(s);
         return new ResponseEntity<>(testFarmer, HttpStatus.OK);    //generating & Returning Response
     }
@@ -50,7 +50,7 @@ public class AdminControllerTest {
 
     @Test
     void addFarmer() {
-    	FarmerDetails s = new FarmerDetails(2,22,"sree","sai@mail.com","dfsd");
+    	FarmerDetails s = new FarmerDetails(2,22,"kamal","sai@mail.com","dfsd");
         when(AdminController.addFarmerDetails(s)).thenReturn(new ResponseEntity<>(s,HttpStatus.OK));
         when(AdminController.addFarmerDetails(F)).thenReturn(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
         ResponseEntity<FarmerDetails> result1 = AdminController.addFarmerDetails(F);
